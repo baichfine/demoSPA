@@ -1,103 +1,55 @@
 <template>
   <v-tooltip
-    v-model="searchEmpty"
-    location="top"
-    ><span>Пустой текст запроса!</span>
+    v-model="search.input.emty"
+    location="bottom"
+    text="Пустой текст запроса!"
+  >
   </v-tooltip>
   <v-tooltip
-    :open-on-hover="active ? false : true"
-    :activator="onHoverIcon()"
+    :open-on-hover="search.input.active ? false : true"
+    :activator="search.input.active ? '' : search.input.onHoverIcon()"
     location="bottom"
     text="Поиск"
-    width="auto"
-    eager
   >
   </v-tooltip>
   <v-text-field
-    :modelValue="valSearch"
-    :class="active ? 'search' : 'search hide'"
-    :trim="valSearch"
-    :loading="loading"
+    :modelValue="search.input.value"
+    :trim="search.input.value"
+    :loading="search.input.loading"
+    :class="search.input.active ? 'search' : 'search hide'"
     persistent-hint
-    ref="input"
+    v-model="valSearch"
     density="default"
     variant="solo-filled"
     base-color="colorFontMain"
-    append-inner-icon="mdi-magnify"
-    clear-icon="mdi-close"
     autocomplete="off"
     placeholder="Введите запрос"
     hide-details
     single-line
+    append-inner-icon="mdi-magnify"
     clearable
+    clear-icon="mdi-close"
     v-click-outside="{
-      handler: onClickOutside,
-      closeConditional: onCloseConditional,
+      handler: search.input.onClickOutside,
+      closeConditional: search.input.onCloseConditional,
     }"
-    @input="valSearch = $event.target.value"
-    @click:clear="clearSearch"
-    @keyup.enter="startSearch"
-    @click:append-inner="startSearch"
+    @input="search.input.value = $event.target.value"
+    @click:clear="search.input.clearSearch"
+    @click:append-inner="search.input.startSearch"
+    @keyup.enter="search.input.startSearch"
   ></v-text-field>
 </template>
+
 <script setup>
-import { useStore } from 'vuex'
-import { consts } from '@/store/consts'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
+import { useSearch } from '@/use/search'
 
-const store = useStore()
-const input = ref()
-const active = ref(false)
-const clickOutsideEnabled = ref(false)
-const loading = ref(false)
-const searchEmpty = ref(false)
-
-const valSearch = computed({
-  get() {
-    return store.getters.valSearch
-  },
-  set() {
-    store.commit(consts.SET_VALUE_SEARCH, {
-      value: input.value.modelValue,
-    })
+const required = (val) => !!val
+const valSearch = ref()
+const search = useSearch({
+  input: {
+    value: valSearch,
+    validators: { required },
   },
 })
-function clearSearch() {
-  store.commit(consts.SET_VALUE_SEARCH, {
-    value: '',
-  })
-  console.log('  ' + 'clearSearch')
-}
-function startSearch() {
-  if (valSearch.value !== '' && active.value === true) {
-    loading.value = true
-    searchEmpty.value = false
-    setTimeout(() => {
-      loading.value = false
-      clickOutsideEnabled.value = true
-    }, 2000)
-  } else if (active.value) searchEmpty.value = true
-  else {
-    active.value = true
-    clickOutsideEnabled.value = true
-  }
-  console.log('startSearch')
-}
-function onClickOutside() {
-  clickOutsideEnabled.value = false
-  searchEmpty.value = false
-  active.value = false
-  console.log('onClickOutside')
-}
-function onCloseConditional() {
-  console.log(clickOutsideEnabled.value + '  onCloseConditional ')
-
-  return clickOutsideEnabled.value
-}
-function onHoverIcon() {
-  console.log(document.querySelector('.v-field__append-inner'))
-  return active.value === false
-    ? document.querySelector('.v-field__append-inner')
-    : ''
-}
 </script>
