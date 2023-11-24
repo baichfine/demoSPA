@@ -1,0 +1,74 @@
+.v-overlay__content {
+  top: 53px !important;
+  padding-top: 23px;
+  flex-direction: row;
+  .v-ripple__container {
+    display: none;
+  }
+}
+.v-icon__svg {
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.1));
+  width: 22px;
+  height: 22px;
+}
+.navBtn {
+  font: 15px $font-main;
+  font-weight: 400;
+  text-transform: inherit;
+  color: $fontPrimory !important;
+  box-shadow: none !important;
+  letter-spacing: 0;
+  padding: 0px 12px;
+  background-color: $white !important;
+  .v-btn__overlay,
+  .v-btn__content {
+    background-color: $white;
+  }
+}
+.activeBtn {
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+.unactiveBtn {
+  opacity: 0.5 !important;
+}
+.v-btn {
+  transition-duration: 0ms !important;
+}
+.navMenu {
+  left: 378px !important;
+  .cardStyle {
+    max-height: 304px;
+    height: auto;
+    width: 1100px;
+    display: flex;
+    flex-direction: row;
+  }
+  .v-list-item {
+    min-height: 30px;
+  }
+  .v-list-item:hover .v-list-item-title {
+    color: $fontPrimory;
+    font-weight: 600;
+  }
+  .v-list-item-title {
+    color: $fontSecondary;
+    font: 13px $font-main;
+    font-weight: 500;
+    text-transform: inherit;
+    letter-spacing: 0;
+  }
+  .v-list-subheader__text {
+    font: 15px $font-main;
+    color: $fontPrimory;
+    font-weight: 600;
+    text-transform: inherit;
+    letter-spacing: 0;
+  }
+  .v-list {
+    padding: 8px;
+  }
+  .v-divider {
+    height: auto;
+  }
+}

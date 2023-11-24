@@ -6,7 +6,7 @@
   >
     <AppGroup
       v-for="(item, index) in items"
-      :key="item[0].title"
+      :key="item[index].title"
       :items="item"
       :index="index"
     ></AppGroup>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import AppGroup from '../components/AppGroup.vue'
+import AppGroup from './AppMenuListGroup.vue'
 
 defineProps({
   items: Object,

@@ -1,0 +1,58 @@
+.person {
+  font-weight: 500;
+  text-transform: inherit;
+  font: 15px $font-main;
+  color: $fontPrimory !important;
+  box-shadow: none !important;
+  letter-spacing: 0;
+  padding: 0px 12px;
+  margin-left: auto;
+  background: $backgroundSecondary !important;
+  .v-ripple__container {
+    color: $main;
+  }
+}
+.personalModal {
+  right: 376px !important;
+  color: $white;
+  left: auto !important;
+  .v-card {
+    max-height: 304px;
+    height: auto;
+    width: 260px;
+    padding: 8px;
+  }
+  .v-list-item-title {
+    color: $fontPrimory;
+    font: 14px $font-main;
+    font-weight: 600;
+    text-transform: inherit;
+    letter-spacing: 0;
+  }
+  .v-list {
+    padding: 0;
+  }
+  .v-list-item--density-default.v-list-item--one-line {
+    min-height: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .v-btn--icon.v-btn--density-default {
+    width: calc(var(--v-btn-height) + 0px);
+    height: calc(var(--v-btn-height) + 0px);
+  }
+  .v-btn--icon.v-btn--size-default {
+    --v-btn-size: 0.9rem;
+  }
+  .v-list-item__prepend {
+    .v-icon {
+      opacity: 1;
+    }
+    .v-list-item__spacer {
+      width: 20px;
+    }
+  }
+  .v-card {
+    transition-duration: 0ms !important;
+  }
+}

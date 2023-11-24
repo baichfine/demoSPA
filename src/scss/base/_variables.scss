@@ -1,0 +1,33 @@
+$main: rgb(var(--v-theme-main));
+$white: rgb(var(--v-theme-white));
+$whiteSecondary: rgb(var(--v-theme-whiteSecondary));
+$secondary: rgb(var(--v-theme-secondary));
+$fontPrimory: rgb(var(--v-theme-fontPrimory));
+$fontSecondary: rgb(var(--v-theme-fontSecondary));
+$black: rgb(var(--v-theme-black));
+$backgroundSecondary: rgb(var(--v-theme-backgroundSecondary));
+$background: rgb(var(--v-theme-background));
+
+$gradient1: rgb(var(--v-theme-gradient1));
+$gradient2: rgb(var(--v-theme-gradient2));
+$gradient3: rgb(var(--v-theme-gradient3));
+$gradient4: rgb(var(--v-theme-gradient4));
+$gradient5: rgb(var(--v-theme-gradient5));
+$gradient6: rgb(var(--v-theme-gradient6));
+
+@font-face {
+  font-family: 'YS Text Regular Regular';
+  src: url('https://db.onlinewebfonts.com/t/23a02e8af5ef33a9b496dd524401550f.eot');
+  src: url('https://db.onlinewebfonts.com/t/23a02e8af5ef33a9b496dd524401550f.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://db.onlinewebfonts.com/t/23a02e8af5ef33a9b496dd524401550f.woff2')
+      format('woff2'),
+    url('https://db.onlinewebfonts.com/t/23a02e8af5ef33a9b496dd524401550f.woff')
+      format('woff'),
+    url('https://db.onlinewebfonts.com/t/23a02e8af5ef33a9b496dd524401550f.ttf')
+      format('truetype'),
+    url('https://db.onlinewebfonts.com/t/23a02e8af5ef33a9b496dd524401550f.svg#YS Text Regular Regular')
+      format('svg');
+}
+
+$font-main: YS Text Regular Regular, Arial, Helvetica, sans-serif;
