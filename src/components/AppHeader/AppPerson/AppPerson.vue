@@ -4,7 +4,7 @@
     location="end"
     content-class="personalModal"
     transition="scroll-y-transition"
-    open-on-click
+    open-on-hover
     openDelay="0"
     closeDelay="0"
   >
